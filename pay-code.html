@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>日常请求：V我50</title>
+    <style>
+        :root {
+            --primary-color: #ff4757;
+            --primary-hover: #ff6b81;
+            --secondary-color: #dfe4ea;
+            --text-color: #333;
+            --light-text: #7f8c8d;
+            --background: #f5f5f5;
+            --container-bg: white;
+            --shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Microsoft YaHei', sans-serif;
+            background-color: var(--background);
+            color: var(--text-color);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            touch-action: manipulation;
+        }
+        
+        .container {
+            background-color: var(--container-bg);
+            border-radius: 15px;
+            padding: clamp(20px, 5vw, 30px);
+            width: 100%;
+            max-width: 600px;
+            box-shadow: var(--shadow);
+            margin: auto;
+        }
+        
+        h1 {
+            color: var(--primary-color);
+            margin-bottom: clamp(15px, 3vw, 20px);
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            text-align: center;
+        }
+        
+        p {
+            font-size: clamp(1rem, 3vw, 1.1rem);
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .reasons {
+            text-align: left;
+            margin: clamp(20px, 5vw, 25px) 0;
+            padding-left: clamp(15px, 4vw, 20px);
+        }
+        
+        .reasons li {
+            margin-bottom: clamp(8px, 2vw, 10px);
+            font-size: clamp(0.9rem, 3vw, 1.1rem);
+        }
+        
+        .qr-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 100;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .qr-content {
+            background-color: var(--container-bg);
+            padding: clamp(20px, 5vw, 30px);
+            border-radius: 10px;
+            text-align: center;
+            width: 100%;
+            max-width: 400px;
+        }
+        
+        .qr-code {
+            width: clamp(150px, 50vw, 200px);
+            height: clamp(150px, 50vw, 200px);
+            margin: clamp(15px, 4vw, 20px) auto;
+            background-color: #fff;
+            padding: 10px;
+            border: 2px solid var(--primary-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .qr-code img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+        
+        .buttons-container {
+            margin-top: clamp(20px, 5vw, 30px);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            position: relative;
+            min-height: 60px;
+            overflow: hidden;
+        }
+        
+        .btn {
+            padding: clamp(10px, 3vw, 12px) clamp(20px, 5vw, 25px);
+            font-size: clamp(0.9rem, 3vw, 1.1rem);
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: transform 0.2s;
+            flex: 1 1 auto;
+            min-width: 120px;
+            max-width: 200px;
+            position: relative;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+        
+        .btn-v {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .btn-v:hover, .btn-v:focus {
+            background-color: var(--primary-hover);
+            transform: scale(1.05);
+        }
+        
+        .btn-no {
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+            position: absolute;
+            transition: left 0.3s ease-out, top 0.3s ease-out;
+        }
+        
+        .footer {
+            margin-top: clamp(20px, 5vw, 30px);
+            font-size: clamp(0.8rem, 2.5vw, 0.9rem);
+            color: var(--light-text);
+        }
+        
+        .highlight {
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+        
+        /* 防止长按菜单 */
+        .btn-no {
+            -webkit-touch-callout: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>👋 朋友，V我50吧！</h1>
+        <p>这是一个来自日常生活的真诚请求...</p>
+        
+        <div class="reasons">
+            <p>为什么你应该V我50：</p>
+            <ol>
+                <li>我刚帮你点了<span class="highlight">奶茶</span></li>
+                <li>上次吃饭是我<span class="highlight">请客</span></li>
+                <li>你的<span class="highlight">财运</span>今天+50%</li>
+                <li>我帮你<span class="highlight">砍了一刀</span></li>
+                <li>这是<span class="highlight">友谊</span>的代价</li>
+                <li>微信零钱<span class="highlight">快过期</span>了</li>
+                <li>我保证这是<span class="highlight">最后一次</span></li>
+            </ol>
+        </div>
+        
+        <div class="buttons-container" id="buttonsContainer">
+            <button class="btn btn-v" id="vButton">马上V50</button>
+            <button class="btn btn-no" id="noButton">不V，想都别想</button>
+        </div>
+        
+        <div class="footer">
+            <p>* 根据<span class="highlight">《朋友间转账公约》</span>第5条，拒绝可能导致友谊-1</p>
+            <p>* 转账后你将获得<span class="highlight">我的感谢</span>和<span class="highlight">好人卡</span>一张</p>
+        </div>
+    </div>
+    
+    <div class="qr-modal" id="qrModal">
+        <div class="qr-content">
+            <h2>感谢支持！请扫码付款</h2>
+            <div class="qr-code">
+                <!-- 替换为你的收款码图片 -->
+                <img src="your-qr-code.jpg" alt="收款码">
+            </div>
+            <p>转账备注"<span class="highlight">好人一生平安</span>"</p>
+            <button class="btn btn-v" onclick="closeModal()">已支付</button>
+        </div>
+    </div>
+
+    <script>
+        // 获取元素
+        const vButton = document.getElementById('vButton');
+        const noButton = document.getElementById('noButton');
+        const buttonsContainer = document.getElementById('buttonsContainer');
+        const qrModal = document.getElementById('qrModal');
+        
+        // 初始化按钮位置
+        let noButtonPosition = { x: 0, y: 0 };
+        let containerRect, buttonRect;
+        
+        function updateRects() {
+            containerRect = buttonsContainer.getBoundingClientRect();
+            buttonRect = noButton.getBoundingClientRect();
+        }
+        
+        // 初始化
+        function initButtonPosition() {
+            updateRects();
+            
+            // 计算初始位置（居中）
+            const initialX = (containerRect.width - buttonRect.width) / 2;
+            const initialY = 0;
+            
+            noButton.style.left = initialX + 'px';
+            noButton.style.top = initialY + 'px';
+            
+            noButtonPosition = { x: initialX, y: initialY };
+        }
+        
+        // 随机移动按钮
+        function moveButton() {
+            updateRects();
+            
+            // 计算可移动范围
+            const maxX = containerRect.width - buttonRect.width;
+            const maxY = containerRect.height - buttonRect.height;
+            
+            // 计算新位置，确保不会重叠在V50按钮上
+            let newX, newY;
+            let attempts = 0;
+            const maxAttempts = 10;
+            
+            do {
+                newX = Math.random() * maxX;
+                newY = Math.random() * maxY;
+                attempts++;
+                
+                // 避免无限循环
+                if (attempts >= maxAttempts) {
+                    newX = Math.random() * maxX;
+                    newY = Math.random() * maxY;
+                    break;
+                }
+            } while (
+                // 检查是否与V50按钮重叠
+                newX + buttonRect.width > containerRect.width / 2 - 20 && 
+                newX < containerRect.width / 2 + 120 && 
+                newY + buttonRect.height > 0 && 
+                newY < 60
+            );
+            
+            noButton.style.left = newX + 'px';
+            noButton.style.top = newY + 'px';
+            noButtonPosition = { x: newX, y: newY };
+            
+            // 改变按钮文本
+            const texts = ['抓不到我', '别点我', '跑路了', 'V50不香吗', '再试一次', '休想点我'];
+            noButton.textContent = texts[Math.floor(Math.random() * texts.length)];
+        }
+        
+        // 点击V50按钮显示收款码
+        vButton.addEventListener('click', function() {
+            qrModal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        });
+        
+        // 关闭模态框
+        function closeModal() {
+            qrModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+            alert('收款成功！你真是个好人！');
+        }
+        
+        // 点击模态框外部关闭
+        qrModal.addEventListener('click', function(e) {
+            if (e.target === qrModal) {
+                closeModal();
+            }
+        });
+        
+        // 处理按钮交互 - 统一处理触摸和鼠标事件
+        function handleButtonInteraction(e) {
+            e.preventDefault();
+            moveButton();
+        }
+        
+        // 添加各种交互事件
+        noButton.addEventListener('mouseover', handleButtonInteraction);
+        noButton.addEventListener('touchstart', handleButtonInteraction);
+        noButton.addEventListener('pointerdown', handleButtonInteraction);
+        
+        // 防止拖拽选中文本
+        noButton.addEventListener('mousedown', function(e) {
+            e.preventDefault();
+        });
+        
+        // 窗口大小改变时重新定位按钮
+        window.addEventListener('resize', function() {
+            initButtonPosition();
+        });
+        
+        // 防止用户离开页面
+        window.addEventListener('beforeunload', function(e) {
+            e.preventDefault();
+            e.returnValue = "确定要离开吗？你还没V50呢！";
+        });
+        
+        // 初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            initButtonPosition();
+            
+            // 确保按钮在加载后不会与V50按钮重叠
+            setTimeout(() => {
+                updateRects();
+                if (
+                    noButtonPosition.x + buttonRect.width > containerRect.width / 2 - 20 && 
+                    noButtonPosition.x < containerRect.width / 2 + 120 && 
+                    noButtonPosition.y + buttonRect.height > 0 && 
+                    noButtonPosition.y < 60
+                ) {
+                    moveButton();
+                }
+            }, 100);
+        });
+    </script>
+</body>
+</html>
